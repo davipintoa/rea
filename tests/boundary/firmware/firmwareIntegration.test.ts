@@ -144,7 +144,7 @@ it("extracts a selected interval with verified file identity and parent-byte lin
   expect(fixture.launches[1]?.args).toEqual(
     expect.arrayContaining(["--process-num", "1", "--randomness-depth", "0"]),
   );
-  expect(fixture.launches[1]?.args).not.toContain("--no-sandbox");
+  expect(fixture.launches[1]?.args).not.toContain("--no-sandbox"); // security-kit: ignore LOCAL-BROWSER-01 (false positive, asserts the flag is absent)
   await assertFirmwareCleanup(fixture.launches);
 });
 
