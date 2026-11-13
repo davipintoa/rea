@@ -514,7 +514,7 @@ export const openPlaywrightScenarioBrowser = async (
       // the Termux-launched process so scenario navigation remains available.
       args:
         process.platform === "android"
-          ? ["--no-sandbox", "--single-process"]
+          ? ["--no-sandbox", "--single-process"] // security-kit: ignore LOCAL-BROWSER-01 (Termux/Android only, its Chromium has no sandbox)
           : [],
     });
   } catch (cause: unknown) {

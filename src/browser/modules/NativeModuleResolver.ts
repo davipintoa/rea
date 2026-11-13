@@ -126,7 +126,7 @@ export class NativeModuleResolver implements WebModuleResolutionPort {
           "--renderer-process-limit=1",
           "--js-flags=--max-old-space-size=128",
           ...(this.environment.REA_BROWSER_NO_SANDBOX === "true"
-            ? ["--no-sandbox"]
+            ? ["--no-sandbox"] // security-kit: ignore LOCAL-BROWSER-01 (opt-in via REA_BROWSER_NO_SANDBOX=true for CI runners without user namespaces)
             : []),
         ],
       });

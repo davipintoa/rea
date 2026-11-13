@@ -107,7 +107,7 @@ it("keeps Termux execution support when launching Chromium on Android", async ()
     }),
   ).rejects.toThrow("launch boundary reached");
 
-  expect(launchOptions?.args).toEqual(["--no-sandbox", "--single-process"]);
+  expect(launchOptions?.args).toEqual(["--no-sandbox", "--single-process"]); // security-kit: ignore LOCAL-BROWSER-01 (asserts the Termux/Android exception)
   expect(launchOptions?.env).toEqual({
     LANG: "selected-language",
     LD_PRELOAD: "/data/data/com.termux/files/usr/lib/libtermux-exec.so",

@@ -41,10 +41,10 @@ new BrowserWindow({
   width: 900,
   webPreferences: {
     preload: path.join(__dirname, "preload.js"),
-    nodeIntegration: true,
-    contextIsolation: false,
-    sandbox: false,
-    webSecurity: false,
+    nodeIntegration: true, // security-kit: ignore LOCAL-BROWSER-01 (intentionally insecure fixture for the analyzer)
+    contextIsolation: false, // security-kit: ignore LOCAL-BROWSER-01 (intentionally insecure fixture for the analyzer)
+    sandbox: false, // security-kit: ignore LOCAL-BROWSER-01 (intentionally insecure fixture for the analyzer)
+    webSecurity: false, // security-kit: ignore LOCAL-BROWSER-01 (intentionally insecure fixture for the analyzer)
   },
 });
 new BrowserWindow({

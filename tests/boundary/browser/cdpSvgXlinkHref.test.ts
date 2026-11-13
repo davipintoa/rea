@@ -71,7 +71,7 @@ it.skipIf(chromeExecutable === undefined)(
     const child = processes.spawn(executable, [
       "--headless=new",
       ...(process.env.REA_BROWSER_NO_SANDBOX === "true"
-        ? ["--no-sandbox"]
+        ? ["--no-sandbox"] // security-kit: ignore LOCAL-BROWSER-01 (opt-in via REA_BROWSER_NO_SANDBOX=true for CI runners without user namespaces)
         : []),
       "--remote-debugging-address=127.0.0.1",
       "--remote-debugging-port=0",
@@ -243,7 +243,7 @@ for (const { format, page, contentType, nodeNames, link, destinations } of [
       const child = processes.spawn(executable, [
         "--headless=new",
         ...(process.env.REA_BROWSER_NO_SANDBOX === "true"
-          ? ["--no-sandbox"]
+          ? ["--no-sandbox"] // security-kit: ignore LOCAL-BROWSER-01 (opt-in via REA_BROWSER_NO_SANDBOX=true for CI runners without user namespaces)
           : []),
         "--remote-debugging-address=127.0.0.1",
         "--remote-debugging-port=0",

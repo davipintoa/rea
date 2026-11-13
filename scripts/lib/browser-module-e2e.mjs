@@ -350,7 +350,7 @@ const loadingOracle = async (executable, site) => {
     args: [
       "--disable-dev-shm-usage",
       ...(process.env.REA_BROWSER_NO_SANDBOX === "true"
-        ? ["--no-sandbox"]
+        ? ["--no-sandbox"] // security-kit: ignore LOCAL-BROWSER-01 (opt-in via REA_BROWSER_NO_SANDBOX=true for CI runners without user namespaces)
         : []),
     ],
   });
